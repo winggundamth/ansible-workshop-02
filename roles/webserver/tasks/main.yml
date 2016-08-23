@@ -10,8 +10,4 @@
   with_items:
     - php5
     - php5-mysql
-
-- name: Restart Apache2
-  service:
-    name: apache2
-    state: restarted
+  notify: Restart Apache2
