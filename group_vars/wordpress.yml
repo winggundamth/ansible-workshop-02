@@ -2,3 +2,13 @@
 wordpress_db_name: wp
 wordpress_db_user: wp
 wordpress_db_pass: password
+wordpress_auth_key: "W_kW*WCfLd)X @I=VI2VF^l^^8dlb^s?eDbRrJ!RiM+zjTG 4aak_^OosN[zo]Su"
+wordpress_secure_auth_key: "y0JSX-h_4b,b $Ps|FrhF~JesjY&j9%U?m!qk5n_Zo;PR.yo=(rRw[nlNsBpm+?g"
+wordpress_logged_in_key: "rolN6&GkD[61J-M%91WN5h2Oq5M`dmA&v#0dc49ue]{U _b?{$kQ8P{$)WVrw~z3"
+wordpress_nonce_key: "l:F5iQ2ul=6[SP1)@]!r0PB5p?{+n(zm</U#t9;&.y$(Iy,8Ei( ,Sv%;OV!d~K`"
+wordpress_auth_salt: "n/~^{(Zna+03W[`aD8hS[MSLvy)/q)9P$~%G*|55AX}6{&@eIkUSHmW:Yz;q +uN"
+wordpress_secure_auth_salt: "z)>x1b{TXk /73M]M7eu;M R@ga2A.;YKe.J$B~[625W?)|uLkX6Er,7`WbfO!a:"
+wordpress_logged_in_salt: "(Yy+*:z>EL*.sgleRU1z-:5ikoRbS)U;1ibi@-J#`vJAM^E7OC+w}rU> &SG5tDe"
+wordpress_nonce_salt: "H:qra![JN`MMmG3(KBqEVpXplm#4|^kCpGH4nMb_Xbk>Fk,#e0qF~ #At4wZvwGe"
+
+backup_db_name: "{{ wordpress_db_name }}"

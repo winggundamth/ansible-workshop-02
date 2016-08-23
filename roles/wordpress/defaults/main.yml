@@ -2,6 +2,18 @@
 wordpress_db_name: wordpress
 wordpress_db_user: wordpress
 wordpress_db_pass: "P@ssw0rd"
+wordpress_auth_key: CHANGEME
+wordpress_secure_auth_key: CHANGEME
+wordpress_logged_in_key: CHANGEME
+wordpress_nonce_key: CHANGEME
+wordpress_auth_salt: CHANGEME
+wordpress_secure_auth_salt: CHANGEME
+wordpress_logged_in_salt: CHANGEME
+wordpress_nonce_salt: CHANGEME
+
+wordpress_db_host: localhost
+wordpress_db_charset: utf8mb4
+wordpress_db_prefix: wp_
 
 wordpress_owner_user: www-data
 wordpress_owner_group: www-data
