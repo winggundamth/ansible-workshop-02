@@ -1,0 +1,7 @@
+---
+backup_db_name: wordpress
+backup_db_filename: wordpress_db.sql
+backup_db_remote_path: "/tmp/{{ backup_db_filename }}"
+backup_db_local_path: "files/{{ backup_db_timestamp }}/{{ backup_db_filename }}"
+backup_db_local_latest_path: "files/latest"
+backup_db_local_latest_backup_path: "{{ backup_db_local_latest_path }}/{{ backup_db_filename }}"

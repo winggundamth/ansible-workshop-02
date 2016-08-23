@@ -1,0 +1,6 @@
+---
+- name: Backup Wordpress Database
+  hosts: wordpress
+  become: yes
+  roles:
+    - backup_db

@@ -1,0 +1,34 @@
+---
+- name: Register timestamp
+  set_fact:
+    backup_db_timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
+
+- name: Backup Wordpress MySQL database
+  mysql_db:
+    state: dump
+    name: "{{ backup_db_name }}"
+    target: "{{ backup_db_remote_path }}"
+
+- name: Transfer backup file to local host
+  fetch:
+    src: "{{ backup_db_remote_path }}"
+    dest: "{{ backup_db_local_path }}"
+    flat: yes
+
+- name: Remove backup file
+  file:
+    path: "{{ backup_db_remote_path }}"
+    state: absent
+
+- name: Ensure to have latest directory
+  file:
+    path: "{{ backup_db_local_latest_path }}"
+    state: directory
+
+# - name: Make file link to latest backup
+#   file:
+#     src: "{{ backup_db_local_path }}"
+#     dest: "{{ backup_db_local_latest_backup_path }}"
+#     state: link
+#   become: no
+#   delegate_to: 127.0.0.1
