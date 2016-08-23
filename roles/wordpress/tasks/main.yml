@@ -1,10 +1,45 @@
 ---
+- name: Install Python MySQL module
+  apt:
+    name: python-mysqldb
+    state: present
+
 - name: Install MySQL
   apt:
     name: mysql-server
     state: present
-    update_cache: yes
 
-# - name: Create database
-# - name: Install PHP5 + Apache
-# - name: Install Wordpress
+- name: Create database
+  mysql_db:
+    name: wordpress
+    state: present
+
+- name: Create wordpress user for database
+  mysql_user:
+    name: wordpress
+    password: "P@ssw0rd"
+    priv: "wordpress.*:ALL"
+    state: present
+
+- name: Install PHP5 + Apache
+  apt:
+    name: php5
+    state: present
+
+- name: Install PHP5 MySQL
+  apt:
+    name: php5-mysql
+    state: present
+
+- name: Restart Apache2
+  service:
+    name: apache2
+    state: restarted
+
+- name: Install Wordpress
+  unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: /var/www/html
+    copy: no
+    owner: www-data
+    group: www-data
