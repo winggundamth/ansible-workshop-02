@@ -24,11 +24,13 @@
   file:
     path: "{{ backup_db_local_latest_path }}"
     state: directory
+  become: no
+  delegate_to: 127.0.0.1
 
-# - name: Make file link to latest backup
-#   file:
-#     src: "{{ backup_db_local_path }}"
-#     dest: "{{ backup_db_local_latest_backup_path }}"
-#     state: link
-#   become: no
-#   delegate_to: 127.0.0.1
+- name: Make file link to latest backup
+  file:
+    src: "{{ backup_db_local_path }}"
+    dest: "{{ backup_db_local_latest_backup_path }}"
+    state: link
+  become: no
+  delegate_to: 127.0.0.1
