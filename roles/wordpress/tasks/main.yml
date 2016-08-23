@@ -1,13 +1,15 @@
 ---
-- name: Install Python MySQL module
+- name: Update packages cache
   apt:
-    name: python-mysqldb
-    state: present
+    update_cache: yes
 
-- name: Install MySQL
+- name: Install MySQL Server
   apt:
-    name: mysql-server
+    name: "{{ item }}"
     state: present
+  with_items:
+    - python-mysqldb
+    - mysql-server
 
 - name: Create database
   mysql_db:
@@ -23,13 +25,11 @@
 
 - name: Install PHP5 + Apache
   apt:
-    name: php5
+    name: "{{ item }}"
     state: present
-
-- name: Install PHP5 MySQL
-  apt:
-    name: php5-mysql
-    state: present
+  with_items:
+    - php5
+    - php5-mysql
 
 - name: Restart Apache2
   service:
