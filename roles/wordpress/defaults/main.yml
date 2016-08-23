@@ -2,3 +2,8 @@
 wordpress_db_name: wordpress
 wordpress_db_user: wordpress
 wordpress_db_pass: "P@ssw0rd"
+
+wordpress_owner_user: www-data
+wordpress_owner_group: www-data
+wordpress_download_url: https://wordpress.org/latest.tar.gz
+wordpress_install_path: /var/www/html

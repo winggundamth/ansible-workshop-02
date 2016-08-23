@@ -13,8 +13,8 @@
 
 - name: Install Wordpress
   unarchive:
-    src: https://wordpress.org/latest.tar.gz
-    dest: /var/www/html
+    src: "{{ wordpress_download_url }}"
+    dest: "{{ wordpress_install_path }}"
     copy: no
-    owner: www-data
-    group: www-data
+    owner: "{{ wordpress_owner_user }}"
+    group: "{{ wordpress_owner_group }}"
