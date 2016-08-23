@@ -3,4 +3,6 @@
   hosts: wordpress
   become: yes
   roles:
+    - database
+    - webserver
     - wordpress
