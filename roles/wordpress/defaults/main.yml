@@ -19,3 +19,7 @@ wordpress_owner_user: www-data
 wordpress_owner_group: www-data
 wordpress_download_url: https://wordpress.org/latest.tar.gz
 wordpress_install_path: /var/www/html
+
+wordpress_restore_filename: wordpress_db.sql
+wordpress_restore_local_path: "{{ playbook_dir }}/files/latest/{{ wordpress_restore_filename }}"
+wordpress_restore_remote_path: "/tmp/{{ wordpress_restore_filename }}"

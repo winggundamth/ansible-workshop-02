@@ -26,3 +26,20 @@
     owner: "{{ wordpress_owner_user }}"
     group: "{{ wordpress_owner_group }}"
     mode: 0644
+
+- name: Transfer backup file to remote host
+  copy:
+    src: "{{ wordpress_restore_local_path }}"
+    dest: "{{ wordpress_restore_remote_path }}"
+    follow: yes
+
+- name: Restore Wordpress MySQL database
+  mysql_db:
+    state: import
+    name: "{{ wordpress_db_name }}"
+    target: "{{ wordpress_restore_remote_path }}"
+
+- name: Remove backup file
+  file:
+    path: "{{ wordpress_restore_remote_path }}"
+    state: absent
