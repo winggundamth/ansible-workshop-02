@@ -1,14 +1,14 @@
 ---
 - name: Create Wordpress database
   mysql_db:
-    name: wordpress
+    name: "{{ wordpress_db_name }}"
     state: present
 
 - name: Create Wordpress user for database
   mysql_user:
-    name: wordpress
-    password: "P@ssw0rd"
-    priv: "wordpress.*:ALL"
+    name: "{{ wordpress_db_user }}"
+    password: "{{ wordpress_db_pass }}"
+    priv: "{{ wordpress_db_name }}.*:ALL"
     state: present
 
 - name: Install Wordpress
